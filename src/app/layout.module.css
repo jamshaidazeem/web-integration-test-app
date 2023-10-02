@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .containerLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    height: calc(100vh - 60px); /* full page height - header height */
+
+    .containerMenu {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 102px;
+      height: 100%;
+      border-right: 2px solid #587481;
+    }
+
+    .containerChildren {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: calc(100vw - 102px); /* full page widht - menu width */
+      height: 100%;
+    }
+  }
+}

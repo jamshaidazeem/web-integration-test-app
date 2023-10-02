@@ -1,8 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
-import Header from ".././components/header/header.tsx";
+import styles from "./layout.module.css";
+import Header from ".././components/header/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className} suppressHydrationWarning={true}>
-        <Header />
-        {children}
+        <div className={styles.container}>
+          <Header />
+          <div className={styles.containerLayout}>
+            {/* menu */}
+            <div className={styles.containerMenu}></div>
+            {/* children */}
+            <div className={styles.containerChildren}>{children}</div>
+          </div>
+        </div>
       </body>
     </html>
   );
