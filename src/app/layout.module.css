@@ -17,7 +17,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      width: 102px;
+      width: 116px;
       height: 100%;
       border-right: 2px solid #587481;
     }
@@ -27,7 +27,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
-      width: calc(100vw - 102px); /* full page widht - menu width */
+      width: calc(100vw - 116px); /* full page widht - menu width */
       height: 100%;
     }
   }
