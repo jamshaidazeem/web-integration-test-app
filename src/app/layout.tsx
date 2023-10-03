@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "./layout.module.css";
 import Header from ".././components/header/header";
 import MainMenu from "@/components/mainMenu/mainMenu";
+import SubMenu from "@/components/subMenu/subMenu";
 import MenuContextProvider from "@/containers/menuContext";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,8 +27,9 @@ export default function RootLayout({
             <Header />
             <div className={styles.containerLayout}>
               {/* menu */}
-              <div className={styles.containerMenu}>
+              <div className={styles.containerMenus}>
                 <MainMenu />
+                <SubMenu />
               </div>
               {/* children */}
               <div className={styles.containerChildren}>{children}</div>

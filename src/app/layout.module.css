@@ -12,14 +12,13 @@
     width: 100vw;
     height: calc(100vh - 60px); /* full page height - header height */
 
-    .containerMenu {
+    .containerMenus {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: flex-start;
-      align-items: center;
-      width: 116px;
+      align-items: flex-start;
+      width: 345px; /* 116px, 229px = 345px */
       height: 100%;
-      border-right: 2px solid #587481;
     }
 
     .containerChildren {
@@ -27,7 +26,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start;
-      width: calc(100vw - 116px); /* full page widht - menu width */
+      width: calc(100vw - 345px); /* full page widht - menu width */
       height: 100%;
     }
   }
