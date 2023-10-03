@@ -1,17 +1,19 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import styles from "./subMenu.module.css";
-import { useMenuContext, MenuItem } from "@/containers/menuContext";
+import { useMenuContext } from "@/containers/menuContext";
+import SubMenuHeader from "./subMenuHeader";
 
 export default function SubMenu() {
   const { menuItems, subMenuItem, selectSubMenuListItem } = useMenuContext();
+  const selectedMenuItem = menuItems.find(
+    (item) => item.id === subMenuItem?.mainMenuId
+  );
 
-  // actions
-  const onClickItem = (id: number) => {
-    selectSubMenuListItem(id);
-  };
-
-  return <div className={styles.container}></div>;
+  return (
+    <div className={styles.container}>
+      <SubMenuHeader menuItem={selectedMenuItem} />
+    </div>
+  );
 }
