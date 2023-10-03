@@ -16,7 +16,7 @@ const indicatorImage: SelectedIndicatorImage = {
 };
 
 export default function MainMenu() {
-  const { menuItems, selectMenuItem } = useMenuContext();
+  const { menuItems, selectMenuItem, updateSubMenuItem } = useMenuContext();
   const [getSubMenus, setGetSubMenus] = useState(false);
 
   // actions
@@ -29,6 +29,55 @@ export default function MainMenu() {
       setGetSubMenus(true);
     }
   };
+
+  // use callback hooks
+  const callGetSubMenusAPI = useCallback(async () => {
+    try {
+      const options = {
+        method: "GET",
+      };
+
+      const params = new URLSearchParams();
+
+      const selectedMenuItem = menuItems.find((item) => item.isSelected);
+      if (selectedMenuItem) {
+        params.append("id", selectedMenuItem.id.toString());
+      }
+
+      const url = `${URL_MENUS}?${params.toString()}`;
+
+      const response = await fetchWithGlobalErrorHandler(url, options);
+      const body = await response.json();
+
+      if (!response.ok) {
+        // in case of error response body can contain handled error message from server
+        throw new Error(
+          body.message || response.statusText || "Something went wrong!"
+        );
+      }
+
+      updateSubMenuItem(body.data);
+
+      toast.success("Submenus fetched successfully!");
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  }, []);
+
+  // use effect hooks
+  useEffect(() => {
+    setGetSubMenus(true); // on first load fetch submenus for selected main menu
+  }, []);
+
+  useEffect(() => {
+    if (getSubMenus) {
+      setGetSubMenus(false);
+      toast.loading("Fetching sub menus...", { duration: 1000 });
+      setTimeout(() => {
+        callGetSubMenusAPI();
+      }, 1000);
+    }
+  }, [getSubMenus, callGetSubMenusAPI]);
 
   // templates
   const getTemplateForItem = (item: MenuItem) => (
@@ -64,54 +113,6 @@ export default function MainMenu() {
       </div>
     </div>
   );
-
-  // use callback hooks
-  const callGetSubMenusAPI = useCallback(async () => {
-    try {
-      const options = {
-        method: "GET",
-      };
-
-      const params = new URLSearchParams();
-
-      const selectedMenuItem = menuItems.find((item) => item.isSelected);
-      if (selectedMenuItem) {
-        params.append("id", selectedMenuItem.id.toString());
-      }
-
-      const url = `${URL_MENUS}?${params.toString()}`;
-
-      const response = await fetchWithGlobalErrorHandler(url, options);
-      const body = await response.json();
-
-      if (!response.ok) {
-        // in case of error response body can contain handled error message from server
-        throw new Error(
-          body.message || response.statusText || "Something went wrong!"
-        );
-      }
-
-      console.log(
-        "🚀 ~ file: mainMenu.tsx:86 ~ callGetSubMenusAPI ~ body:",
-        body
-      );
-
-      toast.success("Submenus fetched successfully!");
-    } catch (error: any) {
-      toast.error(error.message);
-    }
-  }, []);
-
-  // use effect hooks
-  useEffect(() => {
-    if (getSubMenus) {
-      setGetSubMenus(false);
-      toast.loading("Fetching sub menus...", { duration: 1000 });
-      setTimeout(() => {
-        callGetSubMenusAPI();
-      }, 1000);
-    }
-  }, [getSubMenus, callGetSubMenusAPI]);
 
   return (
     <>

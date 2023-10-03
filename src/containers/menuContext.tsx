@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, ReactNode } from "react";
+import { SubMenuItem, SubMenuListItem } from "@/utility/menus-mock-data";
 
 export type MenuItem = {
   id: number;
@@ -47,6 +48,9 @@ export type MenuContextType = {
   // Define the data you want to store in the context
   menuItems: MenuItem[];
   selectMenuItem: (itemId: number) => void;
+  subMenuItem: SubMenuItem | null;
+  updateSubMenuItem: (items: SubMenuItem) => void;
+  selectSubMenuListItem: (itemId: number) => void;
 };
 
 // Create a context
@@ -68,6 +72,9 @@ interface MenuContextProviderProps {
 
 const MenuContextProvider = ({ children }: MenuContextProviderProps) => {
   const [menuItems, setMenuItems] = React.useState<MenuItem[]>(items);
+  const [subMenuItem, setSubMenuItem] = React.useState<SubMenuItem | null>(
+    null
+  );
 
   const selectMenuItem = (itemId: number) => {
     let tempItems = [...menuItems];
@@ -77,9 +84,31 @@ const MenuContextProvider = ({ children }: MenuContextProviderProps) => {
     setMenuItems(tempItems);
   };
 
+  const updateSubMenuItem = (item: SubMenuItem) => {
+    setSubMenuItem(item);
+  };
+
+  const selectSubMenuListItem = (itemId: number) => {
+    if (subMenuItem) {
+      let tempSubMenuItem = { ...subMenuItem };
+      tempSubMenuItem.listItems.map((item: SubMenuListItem) => {
+        item.isSelected = item.id === itemId;
+      });
+
+      tempSubMenuItem.menuAccount.listItems.map((item: SubMenuListItem) => {
+        item.isSelected = item.id === itemId;
+      });
+
+      setSubMenuItem(tempSubMenuItem);
+    }
+  };
+
   const contextValue: MenuContextType = {
     menuItems,
     selectMenuItem,
+    subMenuItem,
+    updateSubMenuItem,
+    selectSubMenuListItem,
   };
 
   return (

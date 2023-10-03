@@ -1,4 +1,4 @@
-export type SubMenuItem = {
+export type SubMenuListItem = {
   id: number;
   source: string;
   sourceSelected: string;
@@ -6,7 +6,7 @@ export type SubMenuItem = {
   isSelected: boolean;
 };
 
-export const subMenuItems: SubMenuItem[] = [
+const subMenuListItems: SubMenuListItem[] = [
   {
     id: 1,
     source: "/tabler-icon-license.png",
@@ -51,9 +51,14 @@ export const subMenuItems: SubMenuItem[] = [
   },
 ];
 
-export const accountsMenu = {
+export type SubMenuAccount = {
+  heading: string;
+  listItems: SubMenuListItem[];
+};
+
+export const accountsMenu: SubMenuAccount = {
   heading: "Account Management",
-  subMenuItems: [
+  listItems: [
     {
       id: 7,
       source: "/tabler-person-icon.png",
@@ -71,35 +76,41 @@ export const accountsMenu = {
   ],
 };
 
-export const Items = [
+export type SubMenuItem = {
+  mainMenuId: number;
+  listItems: SubMenuListItem[];
+  menuAccount: SubMenuAccount;
+};
+
+export const subMenuItems: SubMenuItem[] = [
   {
     mainMenuId: 1,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
   {
     mainMenuId: 2,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
   {
     mainMenuId: 3,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
   {
     mainMenuId: 4,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
   {
     mainMenuId: 5,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
   {
     mainMenuId: 6,
-    subMenuItems: subMenuItems,
-    accounts: accountsMenu,
+    listItems: subMenuListItems,
+    menuAccount: accountsMenu,
   },
 ];
