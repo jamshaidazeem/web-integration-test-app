@@ -1,11 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./subMenuPoint.module.css";
 import { SubMenuPoint as Point } from "@/utility/menus-mock-data";
 
 export default function SubMenuPoint({ point }: { point: Point | undefined }) {
+  const progressCompleted =
+    point && !isNaN(point.progressDone) ? point.progressDone : 0;
+
+  const progressTotal =
+    point && !isNaN(point.progressTotal) ? point.progressTotal : 100;
+
+  const progressPercentage = Math.round(
+    (progressCompleted / progressTotal) * 100
+  );
+
+  const progressPercentageInString = `${progressPercentage}%`;
+
   const getTemplateForProfile = () => {
     return (
       <div className={styles.containerProfile}>
@@ -52,6 +64,25 @@ export default function SubMenuPoint({ point }: { point: Point | undefined }) {
     );
   };
 
+  const getTemplateForProgress = () => {
+    return (
+      <div className={styles.containerProgress}>
+        <div className={styles.containerProgressBox}>
+          <span className={styles.text}>{point?.progressText}</span>
+        </div>
+        <div className={styles.containerProgressRectangle}>
+          <span
+            className={styles.text}
+          >{`${point?.progressDone} / ${point?.progressTotal}`}</span>
+          <div
+            className={styles.containerSubProgressReact}
+            style={{ width: progressPercentageInString }}
+          ></div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
       {getTemplateForProfile()}
@@ -60,6 +91,7 @@ export default function SubMenuPoint({ point }: { point: Point | undefined }) {
         {getTemplateForPoint(point?.sourceDiamond, point?.textDiamond)}
         {getTemplateForPoint(point?.sourceKboom, point?.textKboom)}
       </div>
+      {getTemplateForProgress()}
     </div>
   );
 }
