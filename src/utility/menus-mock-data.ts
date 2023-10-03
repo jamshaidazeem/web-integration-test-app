@@ -76,8 +76,37 @@ export const accountsMenu: SubMenuAccount = {
   ],
 };
 
+export type SubMenuPoint = {
+  sourceProfile: string;
+  textProfile: string;
+  sourceGold: string;
+  textGold: string;
+  sourceDiamond: string;
+  textDiamond: string;
+  sourceKboom: string;
+  textKboom: string;
+  progressTotal: number;
+  progressDone: number;
+  progressText: string;
+};
+
+const subMenuPoint: SubMenuPoint = {
+  sourceProfile: "/pseudo-1.png",
+  textProfile: "Pseudo",
+  sourceGold: "/pseudo-4.png",
+  textGold: "12,897",
+  sourceDiamond: "/pseudo-5.png",
+  textDiamond: "322",
+  sourceKboom: "/pseudo-3.png",
+  textKboom: "2/5",
+  progressTotal: 1000,
+  progressDone: 268,
+  progressText: "7",
+};
+
 export type SubMenuItem = {
   mainMenuId: number;
+  menuPoint: SubMenuPoint;
   listItems: SubMenuListItem[];
   menuAccount: SubMenuAccount;
 };
@@ -85,31 +114,37 @@ export type SubMenuItem = {
 export const subMenuItems: SubMenuItem[] = [
   {
     mainMenuId: 1,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },
   {
     mainMenuId: 2,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },
   {
     mainMenuId: 3,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },
   {
     mainMenuId: 4,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },
   {
     mainMenuId: 5,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },
   {
     mainMenuId: 6,
+    menuPoint: subMenuPoint,
     listItems: subMenuListItems,
     menuAccount: accountsMenu,
   },

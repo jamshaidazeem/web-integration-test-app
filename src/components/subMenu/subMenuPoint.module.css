@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  cursor: pointer;
+  row-gap: 16px;
+  border-radius: 4px;
+  border: 2px solid #587481;
+  padding: 12px 0px;
+
+  .containerProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    column-gap: 16px;
+    margin: 0px 12px;
+
+    .containerImage {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+    }
+
+    .text {
+      font-family: Asap;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 23px;
+      letter-spacing: 0.15000000596046448px;
+      text-align: left;
+      color: #2ce5a7;
+    }
+  }
+
+  .containerPoints {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+    margin: 0px 8px;
+
+    .containerPoint {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      max-width: 60px;
+      height: 24px;
+      border-radius: 4px;
+      border: 2px solid #587481;
+      padding: 6px;
+
+      .containerImage {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        left: -15px;
+        top: -5px;
+        position: relative;
+        z-index: 998;
+      }
+
+      .containerImageSmall {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 12px;
+        height: 12px;
+        left: -20px;
+        top: -10px;
+        position: relative;
+        z-index: 999;
+      }
+
+      .text {
+        font-family: SF Pro Text;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 14px;
+        letter-spacing: -0.40799999237060547px;
+        text-align: center;
+        color: white;
+        left: -20px;
+        position: relative;
+      }
+    }
+  }
+}
