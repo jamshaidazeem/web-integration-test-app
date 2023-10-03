@@ -4,6 +4,8 @@ import React from "react";
 import styles from "./subMenu.module.css";
 import { useMenuContext } from "@/containers/menuContext";
 import SubMenuHeader from "./subMenuHeader";
+import SubMenuListItem from "./subMenuListItem";
+import { SubMenuListItem as ListItem } from "@/utility/menus-mock-data";
 
 export default function SubMenu() {
   const { menuItems, subMenuItem, selectSubMenuListItem } = useMenuContext();
@@ -11,9 +13,34 @@ export default function SubMenu() {
     (item) => item.id === subMenuItem?.mainMenuId
   );
 
+  const onClickSubMenuListItem = (item: ListItem) => {
+    selectSubMenuListItem(item.id);
+  };
+
   return (
     <div className={styles.container}>
-      <SubMenuHeader menuItem={selectedMenuItem} />
+      {/* header and list items */}
+      <div className={styles.containerContent}>
+        <SubMenuHeader menuItem={selectedMenuItem} />
+        {subMenuItem?.listItems.map((item) => (
+          <SubMenuListItem
+            key={item.id}
+            item={item}
+            onSelect={onClickSubMenuListItem}
+          />
+        ))}
+      </div>
+      {/* footer */}
+      <div className={styles.containerContent}>
+        <span className={styles.text}>{subMenuItem?.menuAccount.heading}</span>
+        {subMenuItem?.menuAccount.listItems.map((item) => (
+          <SubMenuListItem
+            key={item.id}
+            item={item}
+            onSelect={onClickSubMenuListItem}
+          />
+        ))}
+      </div>
     </div>
   );
 }
