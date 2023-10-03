@@ -4,46 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import styles from "./mainMenu.module.css";
 import Stack from "@mui/material/Stack";
-
-type IconList = {
-  id: number;
-  source: string;
-  name: string;
-  isSelected: boolean;
-};
-
-const iconsList: IconList[] = [
-  {
-    id: 1,
-    source: "/main-menu-image-team-kboom.png",
-    name: "Team KBoom",
-    isSelected: true,
-  },
-  {
-    id: 2,
-    source: "/main-menu-image-team-go.png",
-    name: "Team Go",
-    isSelected: false,
-  },
-  {
-    id: 3,
-    source: "/main-menu-image-team-white.png",
-    name: "Team White",
-    isSelected: false,
-  },
-  {
-    id: 4,
-    source: "/main-menu-image-team-yellow.png",
-    name: "Team Yellow",
-    isSelected: false,
-  },
-  {
-    id: 5,
-    source: "/main-menu-image-team-pink.png",
-    name: "Team Pink",
-    isSelected: false,
-  },
-];
+import { useMenuContext, MenuItem } from "@/containers/menuContext";
 
 type SelectedIndicatorImage = { source: string; name: string };
 const indicatorImage: SelectedIndicatorImage = {
@@ -52,20 +13,22 @@ const indicatorImage: SelectedIndicatorImage = {
 };
 
 export default function MainMenu() {
-  const onClickIcon = (id: number) => {
-    const icon = iconsList.find((icon) => {
-      return icon.id === id;
+  const { menuItems, selectMenuItem } = useMenuContext();
+
+  const onClickItem = (id: number) => {
+    const item = menuItems.find((item) => {
+      return item.id === id;
     });
-    if (icon) {
-      // TODO:
+    if (item) {
+      selectMenuItem(item.id);
     }
   };
 
-  const getTemplateForIcon = (data: IconList) => (
-    <div key={data.id} className={styles.containerMenuIcon}>
+  const getTemplateForItem = (item: MenuItem) => (
+    <div key={item.id} className={styles.containerMenuIcon}>
       {/* indicator */}
       <div className={styles.containerIconSelectedIndicator}>
-        {data.isSelected && (
+        {item.isSelected && (
           <Image
             src={indicatorImage.source}
             alt={indicatorImage.name}
@@ -78,17 +41,17 @@ export default function MainMenu() {
       {/* icon */}
       <div
         className={`${styles.containerMenuIconCircle} ${
-          data.isSelected && styles.containerMenuIconCircleSelected
+          item.isSelected && styles.containerMenuIconCircleSelected
         }`}
       >
         <Image
-          src={data.source}
-          alt={data.name}
+          src={item.source}
+          alt={item.name}
           width={40}
           height={40}
           priority
           onClick={() => {
-            onClickIcon(data.id);
+            onClickItem(item.id);
           }}
         />
       </div>
@@ -98,7 +61,7 @@ export default function MainMenu() {
   return (
     <div className={styles.container}>
       <Stack direction="column" spacing={2}>
-        {iconsList.map((icon) => getTemplateForIcon(icon))}
+        {menuItems.map((item) => getTemplateForItem(item))}
       </Stack>
     </div>
   );

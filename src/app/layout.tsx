@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "./layout.module.css";
 import Header from ".././components/header/header";
 import MainMenu from "@/components/mainMenu/mainMenu";
+import MenuContextProvider from "@/containers/menuContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,20 +19,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={inter.className} suppressHydrationWarning={true}>
-        <div className={styles.container}>
-          <Header />
-          <div className={styles.containerLayout}>
-            {/* menu */}
-            <div className={styles.containerMenu}>
-              <MainMenu />
+    <MenuContextProvider>
+      <html lang="en" suppressHydrationWarning={true}>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <div className={styles.container}>
+            <Header />
+            <div className={styles.containerLayout}>
+              {/* menu */}
+              <div className={styles.containerMenu}>
+                <MainMenu />
+              </div>
+              {/* children */}
+              <div className={styles.containerChildren}>{children}</div>
             </div>
-            {/* children */}
-            <div className={styles.containerChildren}>{children}</div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </MenuContextProvider>
   );
 }
