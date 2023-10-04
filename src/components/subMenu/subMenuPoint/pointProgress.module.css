@@ -18,9 +18,6 @@
     z-index: 999;
 
     .text {
-      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, Roboto,
-        "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
       font-size: 14px;
       font-weight: 600;
       line-height: 22px;
@@ -57,9 +54,6 @@
     }
 
     .text {
-      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, Roboto,
-        "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
       font-size: 9px;
       font-weight: 700;
       line-height: 10px;

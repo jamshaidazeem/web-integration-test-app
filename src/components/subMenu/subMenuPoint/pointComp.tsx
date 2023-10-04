@@ -37,7 +37,9 @@ export default function PointComponent({
           priority
         />
       </div>
-      <span className={styles.text}>{text}</span>
+      <span id="fontSFPRO" className={styles.text}>
+        {text}
+      </span>
     </div>
   );
 }

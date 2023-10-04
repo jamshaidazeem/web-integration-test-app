@@ -21,7 +21,9 @@ export default function SubMenuHeader({
         />
       </div>
       <div className={styles.text}>
-        <span className={styles.text}>{menuItem?.name}</span>
+        <span id="fontAsap" className={styles.text}>
+          {menuItem?.name}
+        </span>
       </div>
     </div>
   );

@@ -36,6 +36,7 @@ export default function SubMenuListItem({
           />
         </div>
         <span
+          id="fontAsap"
           className={`${styles.text} ${
             item && item.isSelected && styles.textSel
           }`}

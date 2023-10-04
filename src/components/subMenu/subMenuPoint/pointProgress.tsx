@@ -19,10 +19,13 @@ export default function PointProgress({ point }: { point: Point | undefined }) {
   return (
     <div className={styles.containerProgress}>
       <div className={styles.containerProgressBox}>
-        <span className={styles.text}>{point?.progressText}</span>
+        <span id="fontSFPRO" className={styles.text}>
+          {point?.progressText}
+        </span>
       </div>
       <div className={styles.containerProgressRectangle}>
         <span
+          id="fontSFPRO"
           className={styles.text}
         >{`${point?.progressDone} / ${point?.progressTotal}`}</span>
         <div

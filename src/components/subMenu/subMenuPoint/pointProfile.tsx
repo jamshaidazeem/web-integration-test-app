@@ -16,7 +16,9 @@ export default function PointProfile({ point }: { point: Point | undefined }) {
           priority
         />
       </div>
-      <span className={styles.text}>{point?.textProfile}</span>
+      <span id="fontAsap" className={styles.text}>
+        {point?.textProfile}
+      </span>
     </div>
   );
 }

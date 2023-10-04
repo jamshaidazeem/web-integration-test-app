@@ -37,7 +37,9 @@ export default function SubMenu() {
       </div>
       {/* footer */}
       <div className={styles.containerContent}>
-        <span className={styles.text}>{subMenuItem?.menuAccount.heading}</span>
+        <span id="fontAsap" className={styles.text}>
+          {subMenuItem?.menuAccount.heading}
+        </span>
         {subMenuItem?.menuAccount.listItems.map((item) => (
           <SubMenuListItem
             key={item.id}
