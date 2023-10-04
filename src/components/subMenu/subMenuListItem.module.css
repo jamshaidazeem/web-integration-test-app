@@ -39,3 +39,10 @@
 .containerSel {
   background-color: #2ce5a7 !important;
 }
+
+.buttonWrapper {
+  background: none;
+  border-image: none;
+  border: none;
+  width: 100%;
+}

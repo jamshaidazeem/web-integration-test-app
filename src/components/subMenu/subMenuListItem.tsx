@@ -13,32 +13,36 @@ export default function SubMenuListItem({
   onSelect: any;
 }) {
   return (
-    <div
-      className={`${styles.container} ${
-        item && item.isSelected && styles.containerSel
-      }`}
+    <button
+      className={styles.buttonWrapper}
       onClick={() => {
         onSelect(item);
       }}
     >
-      <div className={styles.containerImage}>
-        <Image
-          src={
-            item ? (item.isSelected ? item.sourceSelected : item.source) : ""
-          }
-          alt={item ? item.name : ""}
-          width={24}
-          height={24}
-          priority
-        />
-      </div>
-      <span
-        className={`${styles.text} ${
-          item && item.isSelected && styles.textSel
+      <div
+        className={`${styles.container} ${
+          item && item.isSelected && styles.containerSel
         }`}
       >
-        {item?.name}
-      </span>
-    </div>
+        <div className={styles.containerImage}>
+          <Image
+            src={
+              item ? (item.isSelected ? item.sourceSelected : item.source) : ""
+            }
+            alt={item ? item.name : ""}
+            width={24}
+            height={24}
+            priority
+          />
+        </div>
+        <span
+          className={`${styles.text} ${
+            item && item.isSelected && styles.textSel
+          }`}
+        >
+          {item?.name}
+        </span>
+      </div>
+    </button>
   );
 }
