@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Image from "next/image";
 import styles from "./header.module.css";
 import Stack from "@mui/material/Stack";

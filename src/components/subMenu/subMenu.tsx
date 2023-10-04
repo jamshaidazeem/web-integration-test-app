@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "./subMenu.module.css";
 import { useMenuContext } from "@/containers/menuContext";
 import SubMenuHeader from "./subMenuHeader";

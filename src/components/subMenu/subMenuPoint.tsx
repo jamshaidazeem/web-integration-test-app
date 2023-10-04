@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./subMenuPoint.module.css";
 import { SubMenuPoint as Point } from "@/utility/menus-mock-data";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { useState, createContext, useContext } from "react";
 import { SubMenuItem, SubMenuListItem } from "@/utility/menus-mock-data";
 
 export type MenuItem = {
@@ -67,14 +67,12 @@ export function useMenuContext() {
 
 // Define your provider component
 interface MenuContextProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const MenuContextProvider = ({ children }: MenuContextProviderProps) => {
-  const [menuItems, setMenuItems] = React.useState<MenuItem[]>(items);
-  const [subMenuItem, setSubMenuItem] = React.useState<SubMenuItem | null>(
-    null
-  );
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(items);
+  const [subMenuItem, setSubMenuItem] = useState<SubMenuItem | null>(null);
 
   const selectMenuItem = (itemId: number) => {
     let tempItems = [...menuItems];
