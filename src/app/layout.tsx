@@ -1,4 +1,8 @@
 import "./globals.css";
+import "@fontsource/asap"; // Defaults to weight 400
+import "@fontsource/asap/400.css"; // Specify weight
+import "@fontsource/asap/400-italic.css"; // Specify weight and style
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import styles from "./layout.module.css";
