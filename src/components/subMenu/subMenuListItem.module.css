@@ -7,7 +7,6 @@
   height: 40px;
   border-radius: 46px;
   background-color: transparent;
-  cursor: pointer;
   column-gap: 8px;
   padding: 0px 12px;
 
@@ -28,7 +27,6 @@
     letter-spacing: 0.10000000149011612px;
     text-align: left;
     color: #2ce5a7;
-    cursor: pointer;
   }
 
   .textSel {

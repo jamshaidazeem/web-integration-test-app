@@ -81,10 +81,16 @@ export type SubMenuPoint = {
   textProfile: string;
   sourceGold: string;
   textGold: string;
+  widthGold: number;
+  heightGold: number;
   sourceDiamond: string;
   textDiamond: string;
+  widthDiamond: number;
+  heightDiamond: number;
   sourceKboom: string;
   textKboom: string;
+  widthKboom: number;
+  heightKboom: number;
   progressTotal: number;
   progressDone: number;
   progressText: string;
@@ -95,10 +101,16 @@ const subMenuPoint: SubMenuPoint = {
   textProfile: "Pseudo",
   sourceGold: "/pseudo-4.png",
   textGold: "12,897",
+  widthGold: 24,
+  heightGold: 24,
   sourceDiamond: "/pseudo-5.png",
   textDiamond: "322",
+  widthDiamond: 24,
+  heightDiamond: 24,
   sourceKboom: "/pseudo-3.png",
   textKboom: "2/5",
+  widthKboom: 20,
+  heightKboom: 35,
   progressTotal: 1000,
   progressDone: 268,
   progressText: "7",

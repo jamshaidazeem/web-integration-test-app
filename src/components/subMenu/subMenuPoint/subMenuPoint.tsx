@@ -11,12 +11,24 @@ export default function SubMenuPoint({ point }: { point: Point | undefined }) {
     <div className={styles.container}>
       <PointProfile point={point} />
       <div className={styles.containerPoints}>
-        <PointComponent source={point?.sourceGold} text={point?.textGold} />
+        <PointComponent
+          source={point?.sourceGold}
+          text={point?.textGold}
+          width={point?.widthGold}
+          height={point?.heightGold}
+        />
         <PointComponent
           source={point?.sourceDiamond}
           text={point?.textDiamond}
+          width={point?.widthDiamond}
+          height={point?.heightDiamond}
         />
-        <PointComponent source={point?.sourceKboom} text={point?.textKboom} />
+        <PointComponent
+          source={point?.sourceKboom}
+          text={point?.textKboom}
+          width={point?.widthKboom}
+          height={point?.heightKboom}
+        />
       </div>
       <PointProgress point={point} />
     </div>

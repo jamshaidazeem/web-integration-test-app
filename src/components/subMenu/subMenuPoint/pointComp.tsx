@@ -6,18 +6,25 @@ import styles from "./pointComp.module.css";
 export default function PointComponent({
   source,
   text,
+  width,
+  height,
 }: {
   source: string | undefined;
   text: string | undefined;
+  width: number | undefined;
+  height: number | undefined;
 }) {
+  const iconWidth = width ? width : 24;
+  const iconHeight = height ? height : 24;
+
   return (
     <div className={styles.containerPoint}>
       <div className={styles.containerImage}>
         <Image
           src={source ? source : ""}
           alt={text ? text : ""}
-          width={24}
-          height={24}
+          width={iconWidth}
+          height={iconHeight}
           priority
         />
       </div>
