@@ -1,4 +1,4 @@
-.container {
+.containerProfile {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -6,24 +6,24 @@
   width: 100%;
   height: auto;
   column-gap: 16px;
-  margin-bottom: 16px;
+  margin: 0px 12px;
 
   .containerImage {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
   }
 
   .text {
     font-family: "Asap";
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 29px;
-    letter-spacing: 0em;
+    line-height: 23px;
+    letter-spacing: 0.15000000596046448px;
     text-align: left;
-    color: white;
+    color: #2ce5a7;
   }
 }

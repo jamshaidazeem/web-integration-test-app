@@ -5,7 +5,7 @@ import { useMenuContext } from "@/containers/menuContext";
 import SubMenuHeader from "./subMenuHeader";
 import SubMenuListItem from "./subMenuListItem";
 import { SubMenuListItem as ListItem } from "@/utility/menus-mock-data";
-import SubMenuPoint from "./subMenuPoint";
+import SubMenuPoint from "./subMenuPoint/subMenuPoint";
 
 export default function SubMenu() {
   const { menuItems, subMenuItem, selectSubMenuListItem } = useMenuContext();
