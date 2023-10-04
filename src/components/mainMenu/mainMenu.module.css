@@ -16,6 +16,12 @@
     width: 100%;
     height: auto;
     column-gap: 8px;
+
+    .buttonWrapper {
+      background: none;
+      border-image: none;
+      border: none;
+    }
   }
 
   .containerIconSelectedIndicator {

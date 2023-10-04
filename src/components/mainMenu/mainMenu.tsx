@@ -94,23 +94,27 @@ export default function MainMenu() {
           />
         )}
       </div>
-      {/* icon */}
-      <div
-        className={`${styles.containerMenuIconCircle} ${
-          item.isSelected && styles.containerMenuIconCircleSelected
-        }`}
+      {/* button */}
+      <button
+        onClick={() => {
+          onClickItem(item.id);
+        }}
+        className={styles.buttonWrapper}
       >
-        <Image
-          src={item.source}
-          alt={item.name}
-          width={40}
-          height={40}
-          priority
-          onClick={() => {
-            onClickItem(item.id);
-          }}
-        />
-      </div>
+        <div
+          className={`${styles.containerMenuIconCircle} ${
+            item.isSelected && styles.containerMenuIconCircleSelected
+          }`}
+        >
+          <Image
+            src={item.source}
+            alt={item.name}
+            width={40}
+            height={40}
+            priority
+          />
+        </div>
+      </button>
     </div>
   );
 

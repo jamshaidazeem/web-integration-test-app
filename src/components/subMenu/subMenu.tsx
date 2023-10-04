@@ -18,6 +18,10 @@ export default function SubMenu() {
     selectSubMenuListItem(item.id);
   };
 
+  if (!subMenuItem) {
+    return null;
+  }
+
   return (
     <div className={styles.container}>
       {/* header and list items */}
